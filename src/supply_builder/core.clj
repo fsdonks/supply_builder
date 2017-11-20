@@ -117,7 +117,7 @@
                "Unit Groupings" "Low Density Supply"]]
       (.write w (str k "\t")))
     (.write w "\r\n")
-    (let [lines (filter #(>= (read-string (get-field % fformat :edate))) (drop 1 (line-seq r)))
+    (let [lines (filter #(>= (read-string (get-field % fformat :edate))) (line-seq r))
           date (get-date filename)]
       (doseq [src (break-by lines fformat :src)]
         (doseq [compo (break-by src fformat :compo)
